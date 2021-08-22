@@ -3,7 +3,7 @@ const app = express()
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
 const { v4: uuidV4 } = require('uuid')
-
+require('dotenv').config();
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
@@ -26,4 +26,4 @@ io.on('connection', socket => {
   })
 })
 
-server.listen(3000, () => {console.log('Server Started.')})
+server.listen(process.env.PORT ||  3000, () => {console.log('Server Started.')})
