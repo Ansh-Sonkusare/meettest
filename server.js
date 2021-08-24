@@ -7,7 +7,8 @@ const io = require('socket.io')(server)
 const { v4: uuidV4 } = require('uuid')
 require('dotenv').config();
 app.set('view engine', 'ejs')
-app.use(cors({origin:'*' }))
+app.use(cors({origin:'https://anshtest.herokuapp.com' }))
+app.use(cors({origin:'https://peerjs-server.herokuapp.com' }))
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
