@@ -1,10 +1,13 @@
 const express = require('express')
 const app = express()
 const server = require('http').Server(app)
+const cors = require('cors');
+
 const io = require('socket.io')(server)
 const { v4: uuidV4 } = require('uuid')
 require('dotenv').config();
 app.set('view engine', 'ejs')
+app.use(cors({origin:'*' }))
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
