@@ -9,6 +9,10 @@ require('dotenv').config();
 app.set('view engine', 'ejs')
 app.use(cors({origin:'https://anshtest.herokuapp.com' }))
 app.use(cors({origin:'https://peerjs-server.herokuapp.com' }))
+app.use(cors({origin:'*' }))
+server.use(cors({origin:'https://peerjs-server.herokuapp.com' }))
+server.use(cors({origin:'https://anshtest.herokuapp.com' }))
+server.use(cors({origin:'*' }))
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
